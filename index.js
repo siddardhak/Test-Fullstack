@@ -2,17 +2,26 @@ const Router = require('./api/routes')
 
 const express = require('express')
 
-
 const bodyParser = require('body-parser');
+
 const { json } = require('body-parser');
+
+const mongoDB = require('mongodb').MongoClient;
+
 
 
 const app = express();
 
-app.use(json())
+app.use(json());
 
 
 
+
+mongoDB.connect('mongodb+srv://siddardha:siddardha@developer-test.xbtya.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useUnifiedTopology: true}).then((db, err)=>{
+    console.log(db)
+}).catch(err=>{
+    console.log(err)
+})
 
 app.get('/',(req,res)=>{
 
