@@ -17,13 +17,13 @@ app.use(json());
 
 
 
-mongoDB.connect('mongodb+srv://siddardha:siddardha@developer-test.xbtya.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useUnifiedTopology: true}).then((db, err)=>{
+mongoDB.connect('', { useUnifiedTopology: true }).then((db, err) => {
     console.log(db)
-}).catch(err=>{
+}).catch(err => {
     console.log(err)
 })
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
 
     res.status(200).send('Welcome');
 
@@ -32,6 +32,6 @@ app.get('/',(req,res)=>{
 app.use(Router)
 
 
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('running at localhost 3000');
 })
